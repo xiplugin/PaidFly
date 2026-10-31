@@ -1,4 +1,6 @@
 Language: zh-CN.yml
+Scoreboard:
+  Enable: true
 Main:
   PayType: Money
   PayInterval: 3s

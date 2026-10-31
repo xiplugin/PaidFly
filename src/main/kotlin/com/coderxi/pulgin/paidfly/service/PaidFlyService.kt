@@ -100,6 +100,7 @@ object PaidFlyService : BaseService() {
         player.allowFlight = true
         player.isFlying = true
         task.players.add(player.uniqueId)
+        FlightScoreboard.startTracking(player)
         if (notify) {
             Notify.playSound(player, Notify.flyOnSound)
             Notify.send(player, "On","pay_type" to rule.payTypeLocalName)
@@ -111,6 +112,9 @@ object PaidFlyService : BaseService() {
     private fun stopFly(player: Player, notify: Boolean = true , isAutoOff: Boolean = false): Boolean {
         val rule = PayService.getPayRuleByPlayer(player)
         val task = tasksByRule[rule] ?: return false
+        FlightScoreboard.stopTracking(player)
+        lastRemainingSecondsByPlayer.remove(player.uniqueId)
+        lastRemainingBalanceByPlayer.remove(player.uniqueId)
         player.isFlying = false
         player.allowFlight = false
         if (!isAutoOff) {
@@ -131,8 +135,8 @@ object PaidFlyService : BaseService() {
 
     private fun stopAllFly() {
         tasksByRule.values.forEach { task ->
-            task.players.forEach { uuid -> Bukkit.getPlayer(uuid)?.let(::stopFly)}
-            task.cancel()
+            task.players.toList().forEach { uuid -> Bukkit.getPlayer(uuid)?.let(::stopFly)}
+            if (!task.isCancelled) task.cancel()
         }
         tasksByRule.clear()
     }
@@ -155,7 +159,7 @@ object PaidFlyService : BaseService() {
         }
         @EventHandler
         fun onPluginDisable(event: PluginDisableEvent) {
-            stopAllFly()
+            if (event.plugin == plugin) stopAllFly()
         }
     }
 

@@ -1,0 +1,50 @@
+System:
+  NoPermission: "&7[&b飛行&7] &c你沒有使用此指令的權限"
+  UnknownCommand: "&7[&b飛行&7] &c未知的指令"
+  PlayerOnlyCommand: "&7[&b飛行&7] &c此指令僅限玩家使用"
+  PlayerNotOnline: "&7[&b飛行&7] &c目標玩家不在線上"
+  ReloadSuccess: "&7[&b飛行&7] 設定已重新載入！"
+  SelfAlreadyFlying: "&7[&b飛行&7] 你已啟用飛行！"
+  SelfAlreadyOffFlying: "&7[&b飛行&7] 你尚未啟用飛行！"
+  TargetAlreadyFlying: "&7[&b飛行&7] 玩家 {player} 已啟用飛行！"
+  TargetAlreadyOffFlying: "&7[&b飛行&7] 玩家 {player} 尚未啟用飛行！"
+  TargetNotEnough: "&7[&b飛行&7] &c玩家的{pay_type}不足，無法啟用飛行！"
+  TargetOn: "&7[&b飛行&7] 已為 {player} 啟用飛行！"
+  TargetOff: "&7[&b飛行&7] 已為 {player} 關閉飛行！"
+Notify:
+  Chat:
+    'On': "&7[&b飛行&7] 你已啟用飛行，記得留意你的{pay_type}！"
+    'Off': "&7[&b飛行&7] 你已關閉飛行，小心摔落傷害！"
+    NotEnough: "&7[&b飛行&7] &c你的{pay_type}不足，無法啟用飛行！"
+    AutoOffWarn: "&7[&b飛行&7] &c你的{pay_type}即將不足，將在 {seconds} 秒後關閉飛行！"
+    AutoOff: "&7[&b飛行&7] &c你的{pay_type}不足，已自動關閉飛行！"
+  Title:
+    'On': ["&a你已啟用飛行", "記得留意你的{pay_type}"]
+    'Off': ["&c你已關閉飛行", "小心摔落傷害！"]
+    NotEnough: ["&c無法啟用飛行", "&c你的{pay_type}不足"]
+    AutoOffWarn: ["&c將在 {seconds} 秒後關閉飛行", "你的{pay_type}即將不足"]
+    AutoOff: ["&c已自動關閉飛行", "&c你的{pay_type}不足"]
+  Action:
+    'On': "&a你已啟用飛行，記得留意你的{pay_type}！"
+    'Off': "&c你已關閉飛行，小心摔落傷害！"
+    NotEnough: "&c你的{pay_type}不足，無法啟用飛行！"
+    AutoOffWarn: "&c你的{pay_type}即將不足，將在 {seconds} 秒後關閉飛行！"
+    AutoOff: "&c你的{pay_type}不足，已自動關閉飛行！"
+Help:
+  Default:
+    - "&7-------[&b飛行幫助&7]-------"
+    - "&6/fly &8· &7切換飛行模式"
+    - "&6/fly on &8· &7啟用飛行模式"
+    - "&6/fly off &8· &7關閉飛行模式"
+    - "&6/fly toggle &8· &7切換飛行模式"
+  Others:
+    - "&6/fly [on|off|toggle] &e<玩家> &8· &7為指定玩家切換飛行模式"
+  Admin:
+    - "&6/fly reload &8· &7重新載入設定檔"
+Scoreboard:
+  Title: "&b付費飛行"
+  Balance: "&7{pay_type}餘額: &e{balance}"
+  Remaining: "&7預計剩餘: &a{time}"
+PayType:
+  Money: "遊戲幣"
+  Exp: "經驗值"

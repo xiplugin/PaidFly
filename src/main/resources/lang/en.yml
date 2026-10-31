@@ -41,6 +41,10 @@ Help:
     - "&6/fly [on|off|toggle] &e<player> &8· &7Toggle flying mode for a specific player"
   Admin:
     - "&6/fly reload &8· &7Reload the configuration file"
+Scoreboard:
+  Title: "&bPaid Flight"
+  Balance: "&7{pay_type} balance: &e{balance}"
+  Remaining: "&7Estimated time: &a{time}"
 PayType:
   Money: "Money"
   Exp: "Experience"
