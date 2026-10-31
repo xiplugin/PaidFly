@@ -41,6 +41,10 @@ Help:
     - "&6/fly [on|off|toggle] &e<玩家> &8· &7为指定玩家切换飞行模式"
   Admin:
     - "&6/fly reload &8· &7重载配置文件"
+Scoreboard:
+  Title: "&b付费飞行"
+  Balance: "&7{pay_type}余额: &e{balance}"
+  Remaining: "&7预计剩余: &a{time}"
 PayType:
   Money: "游戏币"
   Exp: "经验值"

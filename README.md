@@ -11,6 +11,7 @@
 - Supports players flying by paying with in-game currency/experience points
 - Supports Title, Action, and sound notifications
 - Supports countdown notifications
+- Displays the current payment balance and estimated flight time on a sidebar while flying in the air
 
 ## Installation
 
@@ -22,12 +23,19 @@
 ## Configuration
 
 ```yaml
+Language: zh-TW.yml     # Traditional Chinese; the default is zh-CN.yml
 Main:
   PayType: Money        # Payment mode
   PayInterval: 3s       # Payment interval
   PayCost: 0.5          # Cost per interval
   AutoOffThreshold: 0.5 # Turn off flight if below this value (recommended to set same as PayCost)
+Scoreboard:
+  Enable: true          # Show the paid-flight sidebar
 ```
+
+On startup, the plugin creates `plugins/PaidFly/lang/zh-TW.yml` if it is missing, without overwriting an existing file. Set `Language` to `zh-TW.yml` and reload the configuration to use Traditional Chinese.
+
+The sidebar appears while the player is flying in the air and disappears on landing. It updates every second and displays the configured payment type (money or experience). The time is an estimate based on the current balance and payment rate; charges happen at intervals, and the auto-off threshold can end flight sooner. The previous scoreboard is restored when the sidebar disappears, provided another plugin has not replaced it in the meantime. Customize its text under `Scoreboard` in the language file.
 
 ## Commands
 

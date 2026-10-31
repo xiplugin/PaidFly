@@ -7,6 +7,7 @@ import com.coderxi.pulgin.paidfly.expansion.PaidFlyPAPIExpansion
 import com.coderxi.pulgin.paidfly.service.*
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
+import java.io.File
 import java.nio.file.Path
 
 class PaidFlyPlugin : JavaPlugin() {
@@ -24,6 +25,9 @@ class PaidFlyPlugin : JavaPlugin() {
     }
 
     override fun onEnable() {
+        if (!File(dataFolder, "lang/zh-TW.yml").exists()) {
+            saveResource("lang/zh-TW.yml", false)
+        }
         localizer.reload()
         services.forEach { it.init() }
         getCommand("paidfly")?.setExecutor(PaidFlyCmdExecutor)
